@@ -41,6 +41,12 @@ class Book(models.Model):
     # # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
 
+    def display_genre(self):
+        """Creates a string for the Genre. THis is required to display genre in Admin"""
+        return ', '.join([genre.name for genre in self.genre.all()[:3]])
+
+    display_genre.short_description = 'Genre'
+
     genre = models.ManyToManyField(
         Genre, help_text='Select a genre for this book')
 
@@ -57,7 +63,7 @@ class BookInstance(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library). """
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,
                           help_text='Unique ID for this particular book across whole library')
-    book = models.ForeignKey
+    book = models.ForeignKey('Book', on_delete=models.RESTRICT, null=True)
     imprint = models.CharField(max_length=200)
     due_back = models.DateField(null=True, blank=True)
 
