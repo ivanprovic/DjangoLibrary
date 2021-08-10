@@ -11,4 +11,12 @@ urlpatterns = [
 
 urlpatterns += [
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+    path(r'borrowed/', views.LoanedBooksByUserListView.as_view(),
+         name='all-borrowed'),  # challenge
+]
+
+# Add URLConf for librarian to renew a book.
+urlpatterns += [
+    path('book/<uuid:pk>/renew/', views.renew_book_librarian,
+         name='renew-book-librarian'),
 ]
