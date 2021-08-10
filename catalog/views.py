@@ -1,3 +1,5 @@
+from django. urls import reverse_lazy
+from catalog.models import Author
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Author
 from django.urls import reverse_lazy
@@ -141,3 +143,19 @@ class BookDelete(PermissionRequiredMixin, DeleteView):
     model = Book
     success_url = reverse_lazy('books')
     permission_required = 'catalog.can_mark_returned'
+
+
+class AuthorCreate(CreateView):
+    model = Author
+    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
+    initial = {'date_of_death': '11/06/2020'}
+
+
+class AuthorUpdate(UpdateView):
+    model = Author
+    fields = '__all__'  # avoid, not recommended
+
+
+class AuthorDelete(DeleteView):
+    model = Author
+    success_url = reverse_lazy('authors')
