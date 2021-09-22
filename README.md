@@ -9,4 +9,4 @@ Main fetures are:
 
 MDN project for getting started with Django https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
 
-Personally deployed on Heroku -> https://mighty-thicket-18396.herokuapp.com/catalog/
+Live demo deployed on Heroku -> https://mighty-thicket-18396.herokuapp.com/catalog/
