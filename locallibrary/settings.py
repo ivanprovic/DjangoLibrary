@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY', '9rjtm#yb*@wtx3ohusvp*@hbr&l_b69*gq465@c$)b1az&$njx')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-ALLOWED_HOSTS = ['mighty-thicket-18396.herokuapp.com', '127.0.0.1']
+#DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+ALLOWED_HOSTS = ['mighty-thicket-18396.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
